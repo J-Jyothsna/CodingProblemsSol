@@ -1,0 +1,32 @@
+def findisland(matrix):
+    
+
+    # Define a helper function to perform depth-first search (DFS)
+    def dfs(r, c):
+        # Check if the current cell is within the matrix bounds and is part of an island
+        if r < 0 or r >= len(matrix) or c < 0 or c >= len(matrix[0]) or matrix[r][c] != 1:
+            return
+        matrix[r][c] = 0  # Mark the current cell as visited
+        # Explore the neighboring cells recursively
+        dfs(r + 1, c)
+        dfs(r - 1, c)
+        dfs(r, c + 1)
+        dfs(r, c - 1)
+
+    # Iterate through each cell in the matrix
+    count = 0
+    for r in range(len(matrix)):
+        for c in range(len(matrix[0])):
+            if matrix[r][c] == 1:  # If a cell is part of an island
+                  # Increment the count for each island found
+                dfs(r, c)
+                count += 1# Explore the entire island starting from this cell
+
+    print(count)
+
+# Test the function with the provided matrix
+findisland([[1, 1, 0, 0, 0],
+            [0, 1, 0, 0, 1],
+            [1, 0, 0, 1, 1],
+            [0, 0, 0, 0, 0],
+            [1, 0, 1, 0, 0]])
