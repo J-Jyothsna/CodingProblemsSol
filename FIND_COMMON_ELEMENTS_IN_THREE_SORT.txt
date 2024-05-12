@@ -1,0 +1,20 @@
+#FIND COMMON ELEMENTS IN THREE SORTED ARRAYS
+
+
+
+def commonelements(arr1,arr2,arr3):
+    commonFound=[]
+    
+    for i in arr1:
+        for j in arr2:
+            for k in arr3:
+                if i==j and j==k:
+                    commonFound.append(i)
+    
+    
+    if commonFound:
+        return commonFound
+    else :
+        return -1
+    
+print(commonelements([1, 5, 10, 20, 40, 80],[6, 7, 80, 201, 100],[3, 4, 15, 20, 30, 70, 80, 120]))
