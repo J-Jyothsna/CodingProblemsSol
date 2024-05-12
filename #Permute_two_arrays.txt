@@ -1,0 +1,11 @@
+#Permute two arrays such that sum of evry pair >=k
+def permute(arr1, arr2, k):
+    arr1.sort()
+    arr2.sort(reverse=True)
+    
+    for i in range(len(arr1)):
+            if arr1[i] + arr2[i] < k:
+                return 'no'  # If any pair doesn't satisfy the condition, return "no"
+    return 'yes'
+
+print(permute([7,2,1],[8,9,3],10))
