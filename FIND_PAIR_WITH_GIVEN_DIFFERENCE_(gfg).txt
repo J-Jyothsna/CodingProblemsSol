@@ -1,0 +1,16 @@
+#FIND PAIR WITH GIVEN DIFFERENCE
+
+
+def difference(arr,n):
+    for i in range(len(arr)):
+        for j in range(len(arr)):
+            if i==j:
+                continue
+            
+            if arr[j]-arr[i]==n:
+                return arr[i],arr[j]
+                
+    else :
+        return None
+  
+print(difference([1, 8, 30, 40, 100],-60))
