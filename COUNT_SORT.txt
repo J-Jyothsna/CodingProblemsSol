@@ -1,0 +1,24 @@
+# COUNT SORT (IMPORTANT)
+
+
+def countsort(arr,n):
+    k=max(arr)
+    
+    count=[0] * (k+1)
+    for i in range(n):
+        count[arr[i]]+=1
+    
+    for i in range (1,k+1):
+        count[i]+=count[i-1]
+    
+    output=[0] * n
+    
+    for i in range(n-1,-1,-1):
+        output[count[arr[i]]-1] =arr[i]
+        count[arr[i]] -= 1
+   # print(count)
+    return output
+
+
+
+print(countsort([1,3,2,3,4,1,6,2,3,4],10))
