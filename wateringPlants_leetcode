@@ -1,0 +1,16 @@
+** #watering plants problem solution**
+
+class Solution:
+    def wateringPlants(self, plants: List[int], capacity: int) -> int:
+        can = capacity
+        steps = 0
+
+        for i,value in enumerate(plants):
+            if can <  value:
+                steps += i * 2
+                can = capacity
+
+            can -= value
+            steps += 1
+
+        return steps
