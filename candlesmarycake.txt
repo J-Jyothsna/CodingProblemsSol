@@ -1,0 +1,21 @@
+#Candle Mary Cake solution
+
+def candles(n,k,candle):
+    min_candles = float('inf')
+    required_candles = set(range(1,k+1))
+    
+    for start in range(n):
+        current_set = set()
+        for end in range(start,n):
+            current_set.add(candle[end])
+            if required_candles.issubset(current_set):
+                min_candles=min(min_candles, end - start+1)
+                break
+    
+    return min_candles
+
+n=int(input("enter the total number of candle boxes: "))
+k=int(input("enter the candles req by mary : "))
+candle = list(map(int,input("enter consecutive candle boxes").split()))
+
+print(candles(n,k,candle))
