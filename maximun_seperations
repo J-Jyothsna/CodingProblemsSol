@@ -1,0 +1,40 @@
+#find max seperations in the array such tht no.of even == no. of odd
+
+def max_seperate(n,k,arr):
+    odd = sum(1 for x in arr if x%2 !=0)
+    even = n-odd
+    
+    seperation =[]
+    
+    if odd != even:
+        return 0
+        
+    for i in range(n-1):
+        if arr[i]%2 == 0:
+            even += 1
+        if arr[i]%2 != 0:
+            odd += 1
+            
+        if even == odd:
+            cost = abs(arr[i]-arr[i+1])
+            seperation.append(cost)
+            
+    seperation.sort()
+    
+    total_cost = 0
+    max_seperation = 0
+    
+    for cost in seperation:
+        if total_cost + cost > k:
+            break
+        
+        total_cost += cost
+        max_seperation +=1
+        
+    return max_seperation
+    
+n = 4
+k = 10
+arr = [1,2,3,4]
+
+print(max_seperate(n,k,arr))
