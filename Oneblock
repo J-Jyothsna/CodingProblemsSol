@@ -1,0 +1,20 @@
+def Oneblock(n,arr):
+    pos = []
+    
+    for i in range(n):
+        if arr[i] == 1:
+            pos.append(i+1)
+        
+    if len(pos) == 0:
+        return 0
+    
+    res = 1
+    
+    for i in range(len(pos)-1):
+        res *= (pos[i+1] - pos[i])
+    
+    return res
+    
+n=3
+arr=[0,1,0]
+print(Oneblock(n,arr))
