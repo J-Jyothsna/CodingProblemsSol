@@ -1,0 +1,22 @@
+
+
+def profit(n,k,cost,sell):
+    
+    items = [(cost[i],sell[i])for i in range(n)]
+    
+    money = k
+    profit = 0
+    
+    for cost,sell in items:
+        if money >= cost:
+            profit += sell - cost
+            money += sell - cost
+            
+    return profit
+    
+n = 4
+k = 10
+cost = [4, 3, 2, 1]
+sell = [6, 5, 4, 3]
+
+print(profit(n,k,cost,sell))
