@@ -1,0 +1,18 @@
+
+def valid_resource(A,B,C):
+    different_set = min(A,B,C)
+    A -= different_set
+    B -= different_set
+    C -= different_set
+    
+    identical_set = (A//3) + (B//3) + (C//3)
+    
+    total_valid_set = different_set + identical_set
+    
+    return total_valid_set
+    
+A = 8
+B = 7
+C = 6
+
+print(valid_resource(A,B,C))
