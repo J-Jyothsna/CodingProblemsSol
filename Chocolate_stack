@@ -1,0 +1,18 @@
+def choc_stack(n,c):
+    stack = []
+    result = []
+    
+    for i in range(n):
+        if c[i] == 0:
+            if stack:
+                result.append(stack.pop())
+            
+        if c[i] > 0 :
+            stack.append(c[i])
+        
+    return result
+    
+n = 5
+c = [3, 2,0,1, 0]
+
+print(choc_stack(n,c))
