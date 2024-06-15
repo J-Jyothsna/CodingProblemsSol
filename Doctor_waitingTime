@@ -1,0 +1,30 @@
+def doctor_appointments():
+    n = int(input().strip())
+    patients = []
+
+    for _ in range(n):
+        arrival, time_needed = map(int, input().strip().split())
+        patients.append((arrival, time_needed))
+
+    current_time = 0
+    total_waiting_time = 0
+
+    for arrival, time_needed in patients:
+        if current_time < arrival:
+            current_time = arrival
+        waiting_time = current_time - arrival + time_needed
+        total_waiting_time += waiting_time
+        current_time += time_needed
+
+    average_waiting_time = total_waiting_time // n
+    print(average_waiting_time)
+
+# Example usage:
+# To test the function, run it and provide the input as follows:
+# 4
+# 5 2
+# 5 4
+# 10 3
+# 20 1
+# The output should be: 5
+doctor_appointments()
