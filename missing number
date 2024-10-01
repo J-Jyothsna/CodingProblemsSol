@@ -1,0 +1,7 @@
+def missingNumber(self, n, arr):
+        
+        # code here
+        total_sum = n * (n+1) // 2
+        array_sum = sum(arr)
+        
+        return total_sum - array_sum
