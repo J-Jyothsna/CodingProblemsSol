@@ -1,0 +1,14 @@
+def subArrayExists(self,arr,n):
+        curr_sum = 0
+        
+        prefix_sum = set()
+        
+        for num in arr:
+            curr_sum += num
+            
+            if curr_sum == 0 or curr_sum in prefix_sum:
+                return True
+            
+            prefix_sum.add(curr_sum)
+            
+        return False
