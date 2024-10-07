@@ -1,0 +1,23 @@
+def missingNumber(self,arr):
+        #Your code here
+        #n = len(arr
+        m = len(arr)
+        if len(arr)==1:
+                return 1
+                
+        
+        pos = [x for x in arr if x > 0]
+            
+        if len(pos) == 0:
+            return 1
+        
+        n = len(pos)
+        pos_set = set(pos)
+        
+        for i in range(1,n+1):
+            if i not in pos_set:
+                return i
+        
+        maxi = max(pos)
+            
+        return maxi+1
