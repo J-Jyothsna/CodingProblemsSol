@@ -1,0 +1,13 @@
+def is_palindrome(word):
+  n = len(word)
+  flag = True
+  for i in range(0,n - 1):
+    if word[i] != word[n-1-i]:
+      flag = False
+
+  return flag
+    
+    
+  
+
+print(is_palindrome('hello'))
