@@ -1,0 +1,13 @@
+def two_sum(nums,target):
+  n = len(nums)
+  seen = {}
+  
+  for i in range(0,n):
+    add_seen = abs(nums[i] - target)
+    if add_seen in seen:
+      return [seen[add_seen],i]
+
+    else:
+      seen[nums[i]] = i
+
+print(two_sum([2, 7, 11, 15],9))
