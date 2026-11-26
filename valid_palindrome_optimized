@@ -1,0 +1,22 @@
+def valid_parenthesis(par):
+  stack = []
+  seen_dict = {')':'(', '}':'{', ']':'['}
+  for i in par:
+    print("pAR I: ",i)
+    if i in seen_dict and len(stack) > 0:
+      print("I: ",i)
+      print("STACK: ",stack)
+      top = stack[-1]
+
+      if top == seen_dict[i]:
+        print(f"popped {top}")
+        stack.pop()
+    else:
+        print("OPENING")
+        stack.append(i)
+        
+  print("FINAL STACK: ",stack)
+  return len(stack) == 0
+
+print(valid_parenthesis("()){}[]"))      
+      
